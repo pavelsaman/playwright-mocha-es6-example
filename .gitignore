@@ -1,0 +1,5 @@
+node_modules/
+Results/
+todo
+Resources/credentials.json
+package-lock.json
