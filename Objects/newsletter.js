@@ -1,6 +1,5 @@
 
 class Newsletter {
-
     constructor (page) {
         this.page = page;
         this.email = '#news-email';
@@ -10,4 +9,4 @@ class Newsletter {
     }
 }
 
-module.exports = { Newsletter };
+export default new Newsletter();

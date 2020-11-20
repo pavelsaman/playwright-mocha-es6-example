@@ -3,6 +3,7 @@ import chai from 'chai';
 import config from '../../config';
 import * as env from '../../Helpers/env';
 import * as options from '../../Helpers/browserOptions';
+import Newsletter from '../../Objects/newsletter';
 
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
@@ -43,11 +44,15 @@ suite('Homepage', () => {
 
     test('Sign up for newsletter', async () => {
 
-        
     });
 
     test('Newsletter email field is required', async () => {
 
+        const emailIsRequired = await page.$eval(
+            Newsletter.email,
+            e => e.hasAttribute("required")
+        );
+        expect(emailIsRequired).to.be.true;
     });
 
     test('Newsletter contains valid link for more information', async () => {
