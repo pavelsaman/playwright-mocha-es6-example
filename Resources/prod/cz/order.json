@@ -1,0 +1,35 @@
+[    
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+420111222333",
+        "street": "Test 1",
+        "city": "Praha",
+        "zipCode": "14000",        
+        "deliveryMethod": "Česká Pošta",
+        "paymentMethod": "Platební karta"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+420111222333",
+        "street": "Test 1",
+        "city": "Praha",
+        "zipCode": "14000",        
+        "deliveryMethod": "Česká Pošta",
+        "paymentMethod": "Bankovní převod"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+420111222333",
+        "street": "Test 1",
+        "city": "Praha",
+        "zipCode": "14000",        
+        "deliveryMethod": "Česká Pošta",
+        "paymentMethod": "Dobírka"
+    }
+]

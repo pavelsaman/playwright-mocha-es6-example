@@ -1,5 +1,4 @@
 
-
 class FlashMessage {
     constructor () {
         this.msg = '.c-flash-message.c-flash-message--';

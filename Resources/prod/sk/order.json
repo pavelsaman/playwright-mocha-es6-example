@@ -1,0 +1,35 @@
+[    
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+421111222333",
+        "street": "Test 1",
+        "city": "Bratislava",
+        "zipCode": "81101",        
+        "deliveryMethod": "DPD",
+        "paymentMethod": "Platobná karta"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+421111222333",
+        "street": "Test 1",
+        "city": "Bratislava",
+        "zipCode": "81101",        
+        "deliveryMethod": "DPD",
+        "paymentMethod": "Bankový prevod"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "Inveo",
+        "email": "test@test.cz",
+        "phone": "+421111222333",
+        "street": "Test 1",
+        "city": "Bratislava",
+        "zipCode": "81101",        
+        "deliveryMethod": "DPD",
+        "paymentMethod": "Dobierka"
+    }
+]

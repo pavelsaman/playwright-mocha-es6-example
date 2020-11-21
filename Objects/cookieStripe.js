@@ -1,5 +1,4 @@
 
-
 class CookieStripe {
     constructor () {
         this.cookieStripe = '#cookie-bar';

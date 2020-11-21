@@ -104,10 +104,6 @@ suite('Homepage', function () {
 
     test('Sign up for newsletter', async function () {
 
-        await page.waitForFunction(
-            selector => document.querySelector(selector),
-            Newsletter.email
-        );
         await page.fill(Newsletter.email, config.testerEmail);
         await page.check(Newsletter.checkbox);
         await Promise.all([
@@ -132,7 +128,8 @@ suite('Homepage', function () {
         expect(emailIsRequired).to.be.true;        
     });
 
-    test('Newsletter contains valid link for more information', async function () {
+    test('Newsletter contains valid link for more information',
+        async function () {
 
         await page.waitForFunction(
             selector => document.querySelector(selector),
