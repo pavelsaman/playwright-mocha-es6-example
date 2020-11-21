@@ -35,7 +35,7 @@ function waitForSelected (page, selector, text) {
 suite('Create order', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
-    let browser, context, page, isoDatetime;
+    let browser, context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
         isoDatetime = new Date().toISOString();
@@ -47,20 +47,23 @@ suite('Create order', function () {
     });
 
     setup(async function () {
-        const testName = this.currentTest.title.replace(/ /g, '_');
+        testName = this.currentTest.title.replace(/ /g, '_');
 
         context = await browser.newContext(options.contextConfig());
         page = await context.newPage();    
         if (config.recordVideo) {
             await saveVideo(
                 page,
-                `./Results/Videos/${isoDatetime}/${suiteName}/${testName}.mp4`
+                `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
             );
         }    
         await page.goto(baseUrl + productUrl, { waitUntil: 'networkidle' });
     });
 
-    teardown(async function () {        
+    teardown(async function () {   
+        await page.screenshot({
+            path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+        });     
         await page.close();
         await context.close();
     });
