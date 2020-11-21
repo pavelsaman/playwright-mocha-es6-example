@@ -27,6 +27,7 @@
     "contextOptions": {
         "viewport": null
     },
+    "recordVideo": false,
     "timeout": 20000,
     "reqTimeout": 12000,
     "baseUrl": {

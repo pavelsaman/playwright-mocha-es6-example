@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "description": "Example e2e tests in playwright with mocha",
     "scripts": {
-        "t": "clear && mocha -i --grep @retired",
-        "test": "npm run t",
-        "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos"
+        "test": "clear && mocha -i --grep @retired",
+        "t": "npm run test",    
+        "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
+        "c": "npm run clean"
     },
     "keywords": [
         "playwright",

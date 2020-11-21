@@ -8,6 +8,11 @@ import Newsletter from '../../Objects/newsletter';
 import emails from '../../Resources/clientEmails.json';
 import getCookie from '../../Helpers/cookie';
 import CookieStripe from '../../Objects/cookieStripe';
+import Homepage from '../../Objects/homepage';
+import request from '../../Helpers/networkRequest';
+import getAllLinks from '../../Helpers/links';
+import FlashMessage from '../../Objects/flashMessage';
+import personalDataLinks from '../../Resources/personalDataLinks.json';
 
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
@@ -30,12 +35,14 @@ suite('Homepage', function () {
         const testName = this.currentTest.title.replace(/ /g, '_');
 
         context = await browser.newContext(options.contextConfig());
-        page = await context.newPage();        
-        await saveVideo(
-            page,
-            `./Results/Videos/${isoDatetime}/${suiteName}/${testName}.mp4`
-        );
-        await page.goto(baseUrl);
+        page = await context.newPage();    
+        if (config.recordVideo) {
+            await saveVideo(
+                page,
+                `./Results/Videos/${isoDatetime}/${suiteName}/${testName}.mp4`
+            );
+        }    
+        await page.goto(baseUrl, { waitUntil: 'networkidle' });
     });
 
     teardown(async function () {        
@@ -78,14 +85,46 @@ suite('Homepage', function () {
 
     test('Tiles contain valid links', async function () {
 
+        const tileLinks = await getAllLinks(page, Homepage.tileLinks);
+
+        let i = 1;
+        for (let l of tileLinks) {
+
+            console.log('[' + i + '/' + tileLinks.size + '] ' + l);
+            i++;
+
+            let res = await request({
+                method: 'GET',
+                url: (l.includes('http')) ? l : baseUrl + l
+            });
+
+            expect(res.status).to.equal(200);
+        }
     });
 
     test('Sign up for newsletter', async function () {
 
+        await page.waitForFunction(
+            selector => document.querySelector(selector),
+            Newsletter.email
+        );
+        await page.fill(Newsletter.email, config.testerEmail);
+        await page.check(Newsletter.checkbox);
+        await Promise.all([
+            page.waitForSelector(
+                FlashMessage.confirmation,
+                { state: 'visible' }
+            ),
+            page.click(Newsletter.send)
+        ]);
     });
 
     test('Newsletter email field is required', async function () {
 
+        await page.waitForFunction(
+            selector => document.querySelector(selector),
+            Newsletter.link
+        );
         const emailIsRequired = await page.$eval(
             Newsletter.email,
             e => e.hasAttribute("required")
@@ -95,5 +134,15 @@ suite('Homepage', function () {
 
     test('Newsletter contains valid link for more information', async function () {
 
+        await page.waitForFunction(
+            selector => document.querySelector(selector),
+            Newsletter.link
+        );
+        const hrefAttr = await page.$eval(
+            Newsletter.link,
+            el => el.getAttribute('href')
+        );
+
+        expect(hrefAttr).to.equal(personalDataLinks[env.lang()]);
     });
 });
