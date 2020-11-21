@@ -8,6 +8,7 @@ import randInt from '../../Helpers/randInt';
 import ProductDetail from '../../Objects/productDetail';
 import ProductPopup from '../../Objects/productPopup';
 import SizesPopup from '../../Objects/sizesPopup';
+import request from '../../Helpers/networkRequest';
 
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
@@ -97,5 +98,21 @@ suite('Product detail', function () {
         await ProductDetail.addProductIntoCart(page, 1);
         await page.click(ProductPopup.goBack);
         await page.waitForSelector(ProductDetail.sizesLink);
+    });
+
+    test('Go to product listing through belongs to link', async function () {
+        
+        const belongToLinks = await page.$$(ProductDetail.belongToLink);
+        const hrefAttr
+            = await belongToLinks[randInt(0, belongToLinks.length - 1)]
+                .getAttribute('href');
+        console.log(baseUrl + hrefAttr);
+        const res = await request({
+            method: 'GET',
+            url: baseUrl + hrefAttr,
+            maxRedirects: 0
+        });
+
+        expect(res.status).to.equal(200);
     });
 });

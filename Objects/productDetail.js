@@ -9,6 +9,7 @@ class ProductDetail {
         this.coupon = '.c-product-detail-main__info-tag.c-product-detail-main__info-tag--coupon.js-product-coupon';
         this.sizesLink = '#detail-size-table-toggle';
         this.sizes = '#product-detail-size > a';
+        this.belongToLink = '.c-product-detail-footer__sorting-link';
     }
 
     async addProductIntoCart (page, quantity = undefined) {
