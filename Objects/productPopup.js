@@ -7,6 +7,7 @@ class ProductPopup {
         this.quantityInput = 'input[id="popup-product-quantity"]';
         this.popup = '#cart-popup';
         this.goBack = '.c-popup__info-buttons-link.js-close-popup';
+        this.size = '.c-popup__info-size-item';
     }
 
     async addProductIntoCart (page, quantity = undefined) {

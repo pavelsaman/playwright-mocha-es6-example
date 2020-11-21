@@ -8,6 +8,7 @@ class ProductDetail {
         this.quantityInput = 'input[id="product-detail-quantity"]';
         this.coupon = '.c-product-detail-main__info-tag.c-product-detail-main__info-tag--coupon.js-product-coupon';
         this.sizesLink = '#detail-size-table-toggle';
+        this.sizes = '#product-detail-size > a';
     }
 
     async addProductIntoCart (page, quantity = undefined) {
@@ -36,7 +37,22 @@ class ProductDetail {
             ),
             page.click(this.addToCart)
         ]);              
-    }    
+    }
+    
+    async selectedSize (page) {
+        return await page.evaluate(
+            selector => {
+                const sizes = document.querySelectorAll(selector);
+                let i = 0;
+                for(let el of sizes) {
+                    if (el.getAttribute('class').includes('active'))
+                        return i;
+                    i++;
+                }
+            },
+            this.sizes
+        );
+    }
 }
 
 export default new ProductDetail();
