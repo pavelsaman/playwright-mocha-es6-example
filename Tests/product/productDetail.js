@@ -1,4 +1,3 @@
-import { chromium } from 'playwright';
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
 import config from '../../config';
@@ -17,15 +16,10 @@ const productUrl = "damska-mikina-cussa/lswp203828";
 suite('Product detail', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
-    let browser, context, page, isoDatetime, testName;
+    let context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
-        isoDatetime = new Date().toISOString();
-        browser = await chromium.launch(options.browserConfig());        
-    });
-
-    suiteTeardown(async function () {
-        await browser.close();
+        isoDatetime = new Date().toISOString();   
     });
 
     setup(async function () {
