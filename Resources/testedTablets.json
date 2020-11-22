@@ -1,0 +1,12 @@
+{
+    "mobileMenu": [
+        "iPad (gen 6)",
+        "iPad (gen 6) landscape",
+        "iPad (gen 7)",
+        "iPad Pro 11"
+    ],
+    "desktopMenu": [
+        "iPad (gen 7) landscape",
+        "iPad Pro 11 landscape"
+    ]
+}
