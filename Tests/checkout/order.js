@@ -77,20 +77,20 @@ suite('Create order', function () {
 
             // cart 2
             await Promise.all([
-                Cart.steps.two.selectDeliveryMethod(page, data.deliveryMethod),
                 waitForSelected(
                     page, 
                     SummaryBox.deliveryName, 
                     data.deliveryMethod
-                )
+                ),
+                Cart.steps.two.selectDeliveryMethod(page, data.deliveryMethod)
             ]);
             await Promise.all([
-                Cart.steps.two.selectPaymentMethod(page, data.paymentMethod),
                 waitForSelected(
                     page, 
                     SummaryBox.paymentName, 
                     data.paymentMethod
-                )
+                ),
+                Cart.steps.two.selectPaymentMethod(page, data.paymentMethod)
             ]);
             
             // cart 3
