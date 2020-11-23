@@ -15,7 +15,7 @@ suite('Empty cart', function () {
     let context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
-        isoDatetime = new Date().toISOString();             
+        isoDatetime = new Date().toISOString().replace(/:/g, '-');              
     });    
 
     setup(async function () {

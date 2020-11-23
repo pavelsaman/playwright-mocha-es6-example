@@ -16,7 +16,7 @@ testedTablets.mobileMenu.forEach(device => {
         let context, page, isoDatetime, testName;
 
         suiteSetup(async function () {
-            isoDatetime = new Date().toISOString();   
+            isoDatetime = new Date().toISOString().replace(/:/g, '-');    
         });
 
         setup(async function () {
@@ -139,7 +139,7 @@ testedTablets.desktopMenu.forEach(device => {
         let context, page, isoDatetime, testName;
 
         suiteSetup(async function () {
-            isoDatetime = new Date().toISOString();   
+            isoDatetime = new Date().toISOString().replace(/:/g, '-');    
         });
 
         setup(async function () {
