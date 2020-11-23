@@ -76,8 +76,8 @@ suite('Product search', function () {
         await page.waitForSelector(ProductListing.productItem);
     });
 
-    invalidTerms.forEach(term => {
-        test('Search with invalid term: ' + term, async function () {
+    invalidTerms.forEach((term, i) => {
+        test(i + '-search with invalid term', async function () {
         
             await page.type(Fulltext.input, term);
             await page.click(Fulltext.glass);

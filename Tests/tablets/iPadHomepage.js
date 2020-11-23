@@ -133,7 +133,7 @@ testedTablets.mobileMenu.forEach(device => {
 });
 
 testedTablets.desktopMenu.forEach(device => {
-    suite(device + ' homepage view', function () {
+    suite(device + '-homepage view', function () {
     
         const suiteName = this.title.replace(/ /g, '_');
         let context, page, isoDatetime, testName;

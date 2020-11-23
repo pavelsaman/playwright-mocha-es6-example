@@ -63,7 +63,7 @@ suite('Create order', function () {
     });
 
     orderData.forEach((data, i) => {
-        test(i + ': create order as unregistered user', async function () {
+        test(i + '-create order as unregistered user', async function () {
 
             await ProductDetail.addProductIntoCart(page, 1);
             await ProductPopup.addProductIntoCart(page, 1);
