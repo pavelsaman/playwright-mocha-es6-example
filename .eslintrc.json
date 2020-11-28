@@ -24,7 +24,11 @@
         "max-classes-per-file": ["warn", 5],
         "dot-notation": ["warn"],
         "no-eval": ["error"],
-        "no-multi-spaces": ["warn"],
+        "no-multi-spaces": ["warn", 
+            {
+                "ignoreEOLComments": true
+            }
+        ],
         "no-multi-str": ["warn"],
         "no-redeclare": ["error"],
         "no-return-await": ["error"],
