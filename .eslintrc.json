@@ -25,6 +25,7 @@
         "block-scoped-var": "error",
         "class-methods-use-this": "error",
         "consistent-return": "error",
+        "complexity": ["error", 10],
         "default-case": "error",
         "default-case-last": "error",     
         "default-param-last": "warn",
