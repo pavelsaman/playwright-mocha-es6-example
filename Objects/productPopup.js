@@ -21,11 +21,11 @@ class ProductPopup {
                 await page.fill(this.quantityInput, quantity.toString());
                 await page.focus(this.addToCart);
             }
-        
+
         await page.click(this.addToCart);
         await page.waitForSelector(Cart.removeProduct);
         await page.waitForSelector(Cart.continue);
-    }    
+    }
 }
 
 export default new ProductPopup();

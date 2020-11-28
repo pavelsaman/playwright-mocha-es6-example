@@ -6,6 +6,6 @@ export default async function getAllLinks (page, selector) {
 
     const uniqueLinks = new Set(links);
     uniqueLinks.delete('#');
-    
+
     return uniqueLinks;
 }

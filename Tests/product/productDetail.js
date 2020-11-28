@@ -6,6 +6,8 @@ import * as options from '../../Helpers/browserOptions';
 import randInt from '../../Helpers/randInt';
 import ProductDetail from '../../Objects/productDetail';
 import ProductPopup from '../../Objects/productPopup';
+/* global suite, suiteSetup, setup, teardown, test, browser */
+
 import SizesPopup from '../../Objects/sizesPopup';
 import request from '../../Helpers/networkRequest';
 
@@ -19,31 +21,31 @@ suite('Product detail', function () {
     let context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
-        isoDatetime = new Date().toISOString().replace(/:/g, '-');    
+        isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
     setup(async function () {
         testName = this.currentTest.title.replace(/ /g, '_');
 
         context = await browser.newContext(options.contextConfig());
-        page = await context.newPage();    
+        page = await context.newPage();
         if (config.recordVideo) {
             await saveVideo(
                 page,
                 `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
             );
-        }    
+        }
         await page.goto(baseUrl + productUrl, { waitUntil: 'networkidle' });
     });
 
-    teardown(async function () {   
+    teardown(async function () {
         await page.screenshot({
             path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
-        });     
+        });
         await page.close();
         await context.close();
     });
-    
+
     test('Choose different product size', async function () {
 
         const sizes = await page.$$(ProductDetail.sizes);
@@ -53,9 +55,9 @@ suite('Product detail', function () {
         let newSelected = randInt(0, sizes.length - 1);
         if (sizes.length > 1) {
             while (selected === newSelected)
-                newSelected = randInt(0, sizes.length - 1); 
+                newSelected = randInt(0, sizes.length - 1);
         }
-               
+
         // click on different product size
         await sizes[newSelected].click();
         await page.waitForFunction(
@@ -70,7 +72,7 @@ suite('Product detail', function () {
                 index: newSelected
             }
         );
-        
+
         // get product size text
         const productSizeText = await sizes[newSelected].innerText();
 
@@ -83,7 +85,7 @@ suite('Product detail', function () {
     });
 
     test('Open and close product sizes popup', async function () {
-        
+
         await page.click(ProductDetail.sizesLink);
         await page.waitForSelector(SizesPopup.popup);
         await page.click(SizesPopup.close);
@@ -98,7 +100,7 @@ suite('Product detail', function () {
     });
 
     test('Go to product listing through belongs to link', async function () {
-        
+
         const belongToLinks = await page.$$(ProductDetail.belongToLink);
         const hrefAttr
             = await belongToLinks[randInt(0, belongToLinks.length - 1)]

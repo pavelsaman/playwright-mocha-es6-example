@@ -1,6 +1,6 @@
 
 class Fulltext {
-    constructor () {        
+    constructor () {
         this.input = '#fulltext-search-input';
         this.glass = '#fulltext-search-button';
         this.close = '#fulltext-search-close';

@@ -12,7 +12,8 @@
         "test": "clear && mocha -i --grep @retired",
         "t": "npm run test",
         "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
-        "c": "npm run clean"
+        "c": "npm run clean",
+        "lint": "./node_modules/.bin/eslint \"**/**/*.js\""
     },
     "author": "Pavel Saman",
     "license": "ISC",
@@ -21,6 +22,7 @@
         "axios": "^0.21.0",
         "chai": "^4.2.0",
         "dotenv": "^8.2.0",
+        "eslint": "^7.14.0",
         "esm": "^3.2.25",
         "mocha": "^8.2.1",
         "mocha-multi-reporters": "^1.5.1",

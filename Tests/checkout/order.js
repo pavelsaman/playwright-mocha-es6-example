@@ -1,3 +1,5 @@
+/* global suite, suiteSetup, setup, teardown, test, browser */
+
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
 import config from '../../config';
@@ -10,7 +12,7 @@ import SummaryBox from '../../Objects/summaryBox';
 
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
-const orderData = require('../../Resources/' + env.env() + '/' 
+const orderData = require('../../Resources/' + env.env() + '/'
     + env.lang() + '/order.json');
 const productUrl = "damska-mikina-cussa/lswp203828";
 
@@ -37,27 +39,27 @@ suite('Create order', function () {
     let context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
-        isoDatetime = new Date().toISOString().replace(/:/g, '-');         
+        isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
     setup(async function () {
         testName = this.currentTest.title.replace(/ /g, '_');
 
         context = await browser.newContext(options.contextConfig());
-        page = await context.newPage();    
+        page = await context.newPage();
         if (config.recordVideo) {
             await saveVideo(
                 page,
                 `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
             );
-        }    
+        }
         await page.goto(baseUrl + productUrl, { waitUntil: 'networkidle' });
     });
 
-    teardown(async function () {   
+    teardown(async function () {
         await page.screenshot({
             path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
-        });     
+        });
         await page.close();
         await context.close();
     });
@@ -72,21 +74,21 @@ suite('Create order', function () {
             // cart 2
             await Promise.all([
                 waitForSelected(
-                    page, 
-                    SummaryBox.deliveryName, 
+                    page,
+                    SummaryBox.deliveryName,
                     data.deliveryMethod
                 ),
                 Cart.steps.two.selectDeliveryMethod(page, data.deliveryMethod)
             ]);
             await Promise.all([
                 waitForSelected(
-                    page, 
-                    SummaryBox.paymentName, 
+                    page,
+                    SummaryBox.paymentName,
                     data.paymentMethod
                 ),
                 Cart.steps.two.selectPaymentMethod(page, data.paymentMethod)
             ]);
-            
+
             // cart 3
             await page.click(Cart.continue);
             await Cart.steps.three.fillInInvoiceInfo(page, data);

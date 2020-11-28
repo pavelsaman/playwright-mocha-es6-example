@@ -6,13 +6,14 @@ class ProductDetail {
         this.addToCart = '#add-to-cart';
         this.quantity = '#product-detail-quantity';
         this.quantityInput = 'input[id="product-detail-quantity"]';
-        this.coupon = '.c-product-detail-main__info-tag.c-product-detail-main__info-tag--coupon.js-product-coupon';
+        this.coupon = '.c-product-detail-main__info-tag' +
+            + '.c-product-detail-main__info-tag--coupon.js-product-coupon';
         this.sizesLink = '#detail-size-table-toggle';
         this.sizes = '#product-detail-size > a';
         this.belongToLink = '.c-product-detail-footer__sorting-link';
     }
 
-    async addProductIntoCart (page, quantity = undefined) {
+    async chooseQuantity (page, quantity = undefined) {
         if (quantity) {
             if (quantity <= 10) {
                 await page.selectOption(this.quantity,
@@ -24,24 +25,27 @@ class ProductDetail {
                 await page.focus(this.addToCart);
             }
         }
+    }
+
+    async addProductIntoCart (page, quantity = undefined) {
+        await this.chooseQuantity(page, quantity);
 
         await Promise.all([
             page.waitForFunction(
                 selector => {
                     let p = document.querySelector(selector);
-                    if (p) {
+                    if (p)
                         return p.getAttribute("class").includes('visible');
-                    }
                     return false;
-                },    
+                },
                 ProductPopup.popup
             ),
             page.click(this.addToCart)
-        ]);              
+        ]);
     }
-    
+
     async selectedSize (page) {
-        return await page.evaluate(
+        return page.evaluate(
             selector => {
                 const sizes = document.querySelectorAll(selector);
                 let i = 0;

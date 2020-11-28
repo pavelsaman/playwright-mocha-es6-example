@@ -1,3 +1,5 @@
+/* global suite, suiteSetup, setup, teardown, test, browser */
+
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
 import config from '../../config';
@@ -22,34 +24,34 @@ suite('Homepage', function () {
     let context, page, isoDatetime, testName;
 
     suiteSetup(async function () {
-        isoDatetime = new Date().toISOString().replace(/:/g, '-');       
+        isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
     setup(async function () {
         testName = this.currentTest.title.replace(/ /g, '_');
 
         context = await browser.newContext(options.contextConfig());
-        page = await context.newPage();    
+        page = await context.newPage();
         if (config.recordVideo) {
             await saveVideo(
                 page,
                 `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
             );
-        }    
+        }
         await page.goto(baseUrl, { waitUntil: 'networkidle' });
     });
 
     teardown(async function () {
         await page.screenshot({
             path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
-        });       
+        });
         await page.close();
         await context.close();
     });
 
     test('Correct email addresses', async function () {
 
-        const emailElements 
+        const emailElements
             = await page.$$('[href="mailto:' + emails[env.lang()] + '"]');
         expect(emailElements.length).to.equal(2);
     });
@@ -60,9 +62,9 @@ suite('Homepage', function () {
         expect(
             getCookie(
                 cookies,
-                { 
-                    searchFor: 'name', 
-                    searchValue: 'cookieAllowed' 
+                {
+                    searchFor: 'name',
+                    searchValue: 'cookieAllowed'
                 }
             )
         ).to.be.false;
@@ -72,9 +74,9 @@ suite('Homepage', function () {
         expect(
             getCookie(
                 cookies,
-                { 
-                    searchFor: 'name', 
-                    searchValue: 'cookieAllowed' 
+                {
+                    searchFor: 'name',
+                    searchValue: 'cookieAllowed'
                 }
             )
         ).to.be.true;
@@ -122,7 +124,7 @@ suite('Homepage', function () {
             Newsletter.email,
             e => e.hasAttribute("required")
         );
-        expect(emailIsRequired).to.be.true;        
+        expect(emailIsRequired).to.be.true;
     });
 
     test('Newsletter contains valid link for more information',
