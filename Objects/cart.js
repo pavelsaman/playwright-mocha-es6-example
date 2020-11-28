@@ -1,18 +1,4 @@
 
-class Cart {
-    constructor () {
-        this.continue = '.c-cart-buttons__continue.o-button';
-        this.productQuantity = '.c-step-1__item-select';
-        this.removeProduct = '.c-step-1__item-remove';
-        this.steps = {
-            one: new Cart1(),
-            two: new Cart2(),
-            three: new Cart3(),
-            four: new Cart4()
-        }
-    }
-}
-
 class Cart1 {
     constructor () {
         this.warning = '.c-step-1__warning';
@@ -94,6 +80,20 @@ class Cart3 {
 class Cart4 {
     constructor () {
         this.strongTYTexts = '.c-thank-you__text > strong';
+    }
+}
+
+class Cart {
+    constructor () {
+        this.continue = '.c-cart-buttons__continue.o-button';
+        this.productQuantity = '.c-step-1__item-select';
+        this.removeProduct = '.c-step-1__item-remove';
+        this.steps = {
+            one: new Cart1(),
+            two: new Cart2(),
+            three: new Cart3(),
+            four: new Cart4()
+        }
     }
 }
 

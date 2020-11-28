@@ -14,18 +14,25 @@
         "sourceType": "module"
     },
     "rules": {
+        "init-declarations": ["error", "always"],
+        "no-shadow": "error",
+        "no-label-var": "error",
+        "no-use-before-define": "error",
+        "no-extra-parens": ["error", "all"],
+        "no-template-curly-in-string": "error",
+        "no-unreachable-loop": "error",
         "eqeqeq": ["error", "always"],
         "max-classes-per-file": ["warn", 5],
-        "dot-notation": ["error"],
+        "dot-notation": ["warn"],
         "no-eval": ["error"],
-        "no-multi-spaces": ["error"],
-        "no-multi-str": ["error"],
+        "no-multi-spaces": ["warn"],
+        "no-multi-str": ["warn"],
         "no-redeclare": ["error"],
         "no-return-await": ["error"],
         "yoda": ["error", "never"],
         "no-useless-return": ["warn"],
         "no-sequences": ["error"],
-        "lines-around-comment": ["error",
+        "lines-around-comment": ["warn",
             {
                 "beforeBlockComment": true,
                 "afterBlockComment": false,
@@ -73,14 +80,14 @@
         "max-statements-per-line": ["error", { "max": 1 }],
         "no-multi-assign": "error",
         "no-mixed-spaces-and-tabs": "error",
-        "no-multiple-empty-lines": ["error",
+        "no-multiple-empty-lines": ["warn",
             {
                 "max": 2,
                 "maxEOF": 1,
                 "maxBOF": 1
             }
         ],
-        "no-tabs": ["error"],
+        "no-tabs": ["warn"],
         "no-trailing-spaces": ["warn",
             {
                 "skipBlankLines": false,
