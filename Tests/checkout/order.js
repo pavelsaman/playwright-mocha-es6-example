@@ -15,7 +15,6 @@ const baseUrl = config.baseUrl[env.envWithLang()];
 const orderData = require('../../Resources/' + env.env() + '/'
     + env.lang() + '/order.json');
 const productUrl = "damska-mikina-cussa/lswp203828";
-const timeoutAddition = 10000;
 
 function waitForSelected (page, selector, text) {
     return page.waitForFunction(
@@ -107,6 +106,6 @@ suite('Create order', function () {
                 expect(orderNumber).to.match(/^[0-9]{2}0[0-9]{5}$/);
             if (env.lang() === 'sk')
                 expect(orderNumber).to.match(/^[0-9]{2}1[0-9]{5}$/);
-        }).timeout(config.timeout + timeoutAddition);
+        }).timeout(config.longTestCaseTimeout);
     });
 });

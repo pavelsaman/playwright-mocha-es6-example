@@ -9,11 +9,13 @@
         "fe"
     ],
     "scripts": {
-        "test": "clear && mocha -i --grep @retired",
+        "test": "clear && npm run lint && mocha -i --grep @retired",
         "t": "npm run test",
         "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
         "c": "npm run clean",
-        "lint": "./node_modules/.bin/eslint \"**/**/*.js\""
+        "lint": "./node_modules/.bin/eslint \"**/**/*.js\"",
+        "l": "npm run lint",
+        "lint-fix": "./node_modules/.bin/eslint \"**/**/*.js\""
     },
     "author": "Pavel Saman",
     "license": "ISC",

@@ -30,6 +30,7 @@
     "recordVideo": false,
     "timeout": 20000,
     "reqTimeout": 12000,
+    "longTestCaseTimeout": 30000,
     "baseUrl": {
         "dev-cz": "",
         "dev-sk": "",

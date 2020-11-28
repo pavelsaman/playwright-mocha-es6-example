@@ -49,7 +49,7 @@ suite('Product detail', function () {
         await context.close();
     });
 
-    test.only('Choose different product size', async function () {
+    test('Choose different product size', async function () {
 
         const sizes = await page.$$(ProductDetail.sizes);
         let selected = await ProductDetail.selectedSize(page);
