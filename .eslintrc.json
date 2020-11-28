@@ -245,6 +245,7 @@
         "spaced-comment": ["warn", "always", { "block": { "balanced": true } }],
         "switch-colon-spacing": ["warn", {"after": true, "before": false}],
         "template-tag-spacing": ["warn", "always"],
-        "wrap-regex": "error"
+        "wrap-regex": "error",
+        "no-nested-ternary": "warn"
     }
 }
