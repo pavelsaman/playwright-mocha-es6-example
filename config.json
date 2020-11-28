@@ -42,5 +42,6 @@
         "cz": "Kč",
         "sk": "€"
     },
-    "testerEmail": "samanpavel@gmail.com"
+    "testerEmail": "samanpavel@gmail.com",
+    "maxQuantityOption": 10
 }

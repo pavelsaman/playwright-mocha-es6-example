@@ -11,14 +11,14 @@ import testedTablets from '../../Resources/testedTablets.json';
 
 const baseUrl = config.baseUrl[env.envWithLang()];
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 testedTablets.mobileMenu.forEach(device => {
-    /* eslint-disable max-lines-per-function, max-nested-callbacks */
     suite(device + ' homepage view', function () {
 
         const suiteName = this.title.replace(/ /g, '_');
         let context, page, isoDatetime, testName;
 
-        suiteSetup(async function () {
+        suiteSetup(function () {
             isoDatetime = new Date().toISOString().replace(/:/g, '-');
         });
 
@@ -31,7 +31,8 @@ testedTablets.mobileMenu.forEach(device => {
             if (config.recordVideo) {
                 await saveVideo(
                     page,
-                    `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
+                    './Results/Videos/' + suiteName + '/'
+                        + testName + '-' + isoDatetime + '.mp4'
                 );
             }
             await page.goto(baseUrl, { waitUntil: 'networkidle' });
@@ -39,7 +40,8 @@ testedTablets.mobileMenu.forEach(device => {
 
         teardown(async function () {
             await page.screenshot({
-                path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+                path: './Results/Screenshots/' + suiteName + '/'
+                    + testName + '-' + isoDatetime + '.png'
             });
             await page.close();
             await context.close();
@@ -141,7 +143,7 @@ testedTablets.desktopMenu.forEach(device => {
         const suiteName = this.title.replace(/ /g, '_');
         let context, page, isoDatetime, testName;
 
-        suiteSetup(async function () {
+        suiteSetup(function () {
             isoDatetime = new Date().toISOString().replace(/:/g, '-');
         });
 
@@ -154,7 +156,8 @@ testedTablets.desktopMenu.forEach(device => {
             if (config.recordVideo) {
                 await saveVideo(
                     page,
-                    `./Results/Videos/${suiteName}/${testName}-${isoDatetime}.mp4`
+                    './Results/Videos/' + suiteName + '/'
+                        + testName + '-' + isoDatetime + '.mp4'
                 );
             }
             await page.goto(baseUrl, { waitUntil: 'networkidle' });
@@ -162,7 +165,8 @@ testedTablets.desktopMenu.forEach(device => {
 
         teardown(async function () {
             await page.screenshot({
-                path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+                path: './Results/Screenshots/' + suiteName + '/'
+                    + testName + '-' + isoDatetime + '.png'
             });
             await page.close();
             await context.close();

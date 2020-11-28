@@ -5,5 +5,6 @@ export default async function request (reqObject) {
         return await axios(reqObject);
     } catch (error) {
         console.error(error);
+        return error;
     }
 }

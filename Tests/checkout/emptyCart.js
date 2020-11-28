@@ -17,7 +17,7 @@ suite('Empty cart', function () {
     const suiteName = this.title.replace(/ /g, '_');
     let context, page, isoDatetime, testName;
 
-    suiteSetup(async function () {
+    suiteSetup(function () {
         isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
@@ -37,7 +37,8 @@ suite('Empty cart', function () {
 
     teardown(async function () {
         await page.screenshot({
-            path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+            path: './Results/Screenshots/' + suiteName + '/' + testName + '-'
+                + isoDatetime + '.png'
         });
         await page.close();
         await context.close();

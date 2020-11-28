@@ -1,4 +1,5 @@
 import ProductPopup from './productPopup';
+import config from '../config.json';
 
 class ProductDetail {
     constructor () {
@@ -15,7 +16,7 @@ class ProductDetail {
 
     async chooseQuantity (page, quantity = undefined) {
         if (quantity) {
-            if (quantity <= 10) {
+            if (quantity <= config.maxQuantityOption) {
                 await page.selectOption(this.quantity,
                     { value: quantity.toString() }
                 );
@@ -44,7 +45,7 @@ class ProductDetail {
         ]);
     }
 
-    async selectedSize (page) {
+    selectedSize (page) {
         return page.evaluate(
             selector => {
                 const sizes = document.querySelectorAll(selector);
@@ -54,6 +55,8 @@ class ProductDetail {
                         return i;
                     i++;
                 }
+
+                return undefined;
             },
             this.sizes
         );

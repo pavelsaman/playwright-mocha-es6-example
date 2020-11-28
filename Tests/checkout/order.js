@@ -15,6 +15,7 @@ const baseUrl = config.baseUrl[env.envWithLang()];
 const orderData = require('../../Resources/' + env.env() + '/'
     + env.lang() + '/order.json');
 const productUrl = "damska-mikina-cussa/lswp203828";
+const timeoutAddition = 10000;
 
 function waitForSelected (page, selector, text) {
     return page.waitForFunction(
@@ -39,7 +40,7 @@ suite('Create order', function () {
     const suiteName = this.title.replace(/ /g, '_');
     let context, page, isoDatetime, testName;
 
-    suiteSetup(async function () {
+    suiteSetup(function () {
         isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
@@ -59,7 +60,8 @@ suite('Create order', function () {
 
     teardown(async function () {
         await page.screenshot({
-            path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+            path: './Results/Screenshots/' + suiteName + '/' + testName + '-'
+                + isoDatetime + '.png'
         });
         await page.close();
         await context.close();
@@ -105,6 +107,6 @@ suite('Create order', function () {
                 expect(orderNumber).to.match(/^[0-9]{2}0[0-9]{5}$/);
             if (env.lang() === 'sk')
                 expect(orderNumber).to.match(/^[0-9]{2}1[0-9]{5}$/);
-        }).timeout(config.timeout + 10000);
+        }).timeout(config.timeout + timeoutAddition);
     });
 });

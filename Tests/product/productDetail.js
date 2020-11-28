@@ -14,6 +14,7 @@ import request from '../../Helpers/networkRequest';
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 const productUrl = "damska-mikina-cussa/lswp203828";
+const SUCCESS = 200;
 
 /* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Product detail', function () {
@@ -21,7 +22,7 @@ suite('Product detail', function () {
     const suiteName = this.title.replace(/ /g, '_');
     let context, page, isoDatetime, testName;
 
-    suiteSetup(async function () {
+    suiteSetup(function () {
         isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
@@ -41,13 +42,14 @@ suite('Product detail', function () {
 
     teardown(async function () {
         await page.screenshot({
-            path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+            path: './Results/Screenshots/' + suiteName + '/' + testName + '-'
+                + isoDatetime + '.png'
         });
         await page.close();
         await context.close();
     });
 
-    test('Choose different product size', async function () {
+    test.only('Choose different product size', async function () {
 
         const sizes = await page.$$(ProductDetail.sizes);
         let selected = await ProductDetail.selectedSize(page);
@@ -114,6 +116,6 @@ suite('Product detail', function () {
             maxRedirects: 0
         });
 
-        expect(res.status).to.equal(200);
+        expect(res.status).to.equal(SUCCESS);
     });
 });

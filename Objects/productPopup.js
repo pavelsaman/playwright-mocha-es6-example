@@ -1,4 +1,5 @@
 import Cart from './cart';
+import config from '../config.json';
 
 class ProductPopup {
     constructor () {
@@ -12,7 +13,7 @@ class ProductPopup {
 
     async addProductIntoCart (page, quantity = undefined) {
         if (quantity)
-            if (quantity <= 10) {
+            if (quantity <= config.maxQuantityOption) {
                 await page.selectOption(this.quantity,
                     { value: quantity.toString() }
                 );

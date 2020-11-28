@@ -10,10 +10,11 @@ import FlashMessage from '../../Objects/flashMessage';
 import ProductListing from '../../Objects/productListing';
 
 const baseUrl = config.baseUrl[env.envWithLang()];
+const SUCCESS = 200;
 
 async function waitForSearchSuggestions (page, searchTerm) {
     await page.waitForResponse(
-        response => response.status() === 200
+        response => response.status() === SUCCESS
             && response.url()
                 === encodeURI(baseUrl
                     + Fulltext.suggestUrl.replace('{term}', searchTerm))
@@ -33,7 +34,7 @@ suite('Product search', function () {
     const suiteName = this.title.replace(/ /g, '_');
     let context, page, isoDatetime, testName;
 
-    suiteSetup(async function () {
+    suiteSetup(function () {
         isoDatetime = new Date().toISOString().replace(/:/g, '-');
     });
 
@@ -53,7 +54,8 @@ suite('Product search', function () {
 
     teardown(async function () {
         await page.screenshot({
-            path: `./Results/Screenshots/${suiteName}/${testName}-${isoDatetime}.png`
+            path: './Results/Screenshots/' + suiteName + '/'
+                + testName + '-' + isoDatetime + '.png'
         });
         await page.close();
         await context.close();
