@@ -1,4 +1,4 @@
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
@@ -18,6 +18,7 @@ import personalDataLinks from '../../Resources/personalDataLinks.json';
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Homepage', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
@@ -94,7 +95,7 @@ suite('Homepage', function () {
 
             let res = await request({
                 method: 'GET',
-                url: (l.includes('http')) ? l : baseUrl + l
+                url: l.includes('http') ? l : baseUrl + l
             });
 
             expect(res.status).to.equal(200);

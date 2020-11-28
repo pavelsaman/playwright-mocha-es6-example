@@ -1,4 +1,4 @@
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
@@ -33,6 +33,7 @@ function waitForSelected (page, selector, text) {
     );
 }
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Create order', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

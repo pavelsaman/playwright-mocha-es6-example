@@ -1,4 +1,4 @@
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
@@ -11,6 +11,7 @@ import Cart from '../../Objects/cart';
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Empty cart', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

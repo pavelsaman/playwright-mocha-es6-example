@@ -1,4 +1,4 @@
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import { saveVideo } from 'playwright-video';
 import config from '../../config';
@@ -27,6 +27,7 @@ async function waitForSearchSuggestions (page, searchTerm) {
     await page.waitForSelector(Fulltext.close);
 }
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Product search', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
@@ -69,7 +70,7 @@ suite('Product search', function () {
 
     test('Search for product with national letters', async function () {
 
-        let searchTerm = (env.lang() === "cz") ? 'šála' : 'detská ';
+        let searchTerm = env.lang() === "cz" ? 'šála' : 'detská ';
         await page.type(Fulltext.input, searchTerm);
         await waitForSearchSuggestions(page, searchTerm);
         await page.click(Fulltext.glass);

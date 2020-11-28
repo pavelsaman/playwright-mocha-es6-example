@@ -1,4 +1,4 @@
-/* global suiteSetup, suiteTeardown, browser */
+/* global browser */
 
 import { chromium } from 'playwright';
 import * as options from '../Helpers/browserOptions';

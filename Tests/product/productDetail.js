@@ -6,7 +6,7 @@ import * as options from '../../Helpers/browserOptions';
 import randInt from '../../Helpers/randInt';
 import ProductDetail from '../../Objects/productDetail';
 import ProductPopup from '../../Objects/productPopup';
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import SizesPopup from '../../Objects/sizesPopup';
 import request from '../../Helpers/networkRequest';
@@ -15,6 +15,7 @@ const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 const productUrl = "damska-mikina-cussa/lswp203828";
 
+/* eslint-disable max-lines-per-function, max-nested-callbacks */
 suite('Product detail', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
@@ -62,8 +63,9 @@ suite('Product detail', function () {
         await sizes[newSelected].click();
         await page.waitForFunction(
             (args) => {
-                const sizes = document.querySelectorAll(args.selector);
-                if (sizes[args.index].getAttribute('class').includes('active'))
+                const sizeOpts = document.querySelectorAll(args.selector);
+                if (sizeOpts[args.index].getAttribute('class')
+                    .includes('active'))
                     return true;
                 return false;
             },

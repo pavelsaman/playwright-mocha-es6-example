@@ -1,4 +1,4 @@
-/* global suite, suiteSetup, setup, teardown, test, browser */
+/* global browser */
 
 import { devices } from 'playwright';
 import { saveVideo } from 'playwright-video';
@@ -12,6 +12,7 @@ import testedTablets from '../../Resources/testedTablets.json';
 const baseUrl = config.baseUrl[env.envWithLang()];
 
 testedTablets.mobileMenu.forEach(device => {
+    /* eslint-disable max-lines-per-function, max-nested-callbacks */
     suite(device + ' homepage view', function () {
 
         const suiteName = this.title.replace(/ /g, '_');

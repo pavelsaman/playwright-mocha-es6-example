@@ -2,10 +2,10 @@
     "env": {
         "browser": true,
         "node": true,
-        "es2021": true
+        "mocha": true,
+        "es6": true
     },
-    "ignorePatterns": [       
-        "Tests/**/*.js",         
+    "ignorePatterns": [
         "node_modules/**/*.js"
     ],
     "extends": "eslint:recommended",
@@ -13,12 +13,11 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "rules": {
-        "init-declarations": ["error", "always"],
+    "rules": {        
         "no-shadow": "error",
         "no-label-var": "error",
         "no-use-before-define": "error",
-        "no-extra-parens": ["error", "all"],
+        "no-extra-parens": ["warn", "all"],
         "no-template-curly-in-string": "error",
         "no-unreachable-loop": "error",
         "eqeqeq": ["error", "always"],
@@ -75,7 +74,7 @@
                 "skipBlankLines": true
             }
         ],
-        "max-nested-callbacks": ["warn", 3],
+        "max-nested-callbacks": ["warn", 2],
         "max-params": ["error", 3],
         "max-statements-per-line": ["error", { "max": 1 }],
         "no-multi-assign": "error",
