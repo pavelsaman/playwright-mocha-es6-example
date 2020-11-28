@@ -51,7 +51,7 @@ testedTablets.mobileMenu.forEach(device => {
 
             await page.waitForFunction(
                 selector => {
-                    let hamburger = document.querySelector(selector);
+                    const hamburger = document.querySelector(selector);
                     return window.getComputedStyle(hamburger)
                         .getPropertyValue('display') !== "none";
                 },
@@ -63,7 +63,7 @@ testedTablets.mobileMenu.forEach(device => {
 
             await page.waitForFunction(
                 selector => {
-                    let hamburger = document.querySelector(selector);
+                    const hamburger = document.querySelector(selector);
                     return window.getComputedStyle(hamburger)
                         .getPropertyValue('display') === "block";
                 },
@@ -176,7 +176,7 @@ testedTablets.desktopMenu.forEach(device => {
 
             await page.waitForFunction(
                 selector => {
-                    let hamburger = document.querySelector(selector);
+                    const hamburger = document.querySelector(selector);
                     return window.getComputedStyle(hamburger)
                         .getPropertyValue('display') === "none";
                 },
@@ -188,7 +188,7 @@ testedTablets.desktopMenu.forEach(device => {
 
             await page.waitForFunction(
                 selector => {
-                    let hamburger = document.querySelector(selector);
+                    const hamburger = document.querySelector(selector);
                     return window.getComputedStyle(hamburger)
                         .getPropertyValue('display') !== "block";
                 },

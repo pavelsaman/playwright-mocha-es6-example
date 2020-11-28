@@ -52,7 +52,7 @@ suite('Product detail', function () {
     test('Choose different product size', async function () {
 
         const sizes = await page.$$(ProductDetail.sizes);
-        let selected = await ProductDetail.selectedSize(page);
+        const selected = await ProductDetail.selectedSize(page);
 
         // choose different product size
         let newSelected = randInt(0, sizes.length - 1);
@@ -64,7 +64,7 @@ suite('Product detail', function () {
         // click on different product size
         await sizes[newSelected].click();
         await page.waitForFunction(
-            (args) => {
+            args => {
                 const sizeOpts = document.querySelectorAll(args.selector);
                 if (sizeOpts[args.index].getAttribute('class')
                     .includes('active'))

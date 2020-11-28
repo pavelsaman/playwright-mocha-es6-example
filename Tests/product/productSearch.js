@@ -63,7 +63,7 @@ suite('Product search', function () {
 
     test('Search for product', async function () {
 
-        let searchTerm = 'boty';
+        const searchTerm = 'boty';
         await page.type(Fulltext.input, searchTerm);
         await waitForSearchSuggestions(page, searchTerm);
         await page.click(Fulltext.glass);
@@ -72,7 +72,7 @@ suite('Product search', function () {
 
     test('Search for product with national letters', async function () {
 
-        let searchTerm = env.lang() === "cz" ? 'šála' : 'detská ';
+        const searchTerm = env.lang() === "cz" ? 'šála' : 'detská ';
         await page.type(Fulltext.input, searchTerm);
         await waitForSearchSuggestions(page, searchTerm);
         await page.click(Fulltext.glass);

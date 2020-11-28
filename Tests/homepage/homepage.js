@@ -90,12 +90,12 @@ suite('Homepage', function () {
         const tileLinks = await getAllLinks(page, Homepage.tileLinks);
 
         let i = 1;
-        for (let l of tileLinks) {
+        for (const l of tileLinks) {
 
             console.log('[' + i + '/' + tileLinks.size + '] ' + l);
             i++;
 
-            let res = await request({
+            const res = await request({
                 method: 'GET',
                 url: l.includes('http') ? l : baseUrl + l
             });

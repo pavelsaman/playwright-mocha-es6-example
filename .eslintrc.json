@@ -160,6 +160,19 @@
         "no-whitespace-before-property": "warn",
         "nonblock-statement-body-position": ["error", "below"],
         "semi-spacing": ["error", { "before": false, "after": true }],
-        "semi-style": ["error", "last"]
+        "semi-style": ["error", "last"],
+        "generator-star-spacing": ["error", { "before": true, "after": false }],
+        "no-confusing-arrow": "error",
+        "no-duplicate-imports": "error",
+        "no-useless-computed-key": "error",
+        "no-useless-constructor": "error",
+        "no-useless-rename": "error",
+        "no-var": "error",
+        "prefer-const": "warn",
+        "prefer-spread": "warn",
+        "template-curly-spacing": ["warn", "never"],
+        "yield-star-spacing": ["error", { "before": true, "after": false }],
+        "arrow-parens": ["warn", "as-needed"],
+        "arrow-spacing": ["warn", { "before": true, "after": true }]
     }
 }

@@ -19,8 +19,8 @@ const productUrl = "damska-mikina-cussa/lswp203828";
 function waitForSelected (page, selector, text) {
     return page.waitForFunction(
         args => {
-            let els = document.querySelectorAll(args.selector);
-            for (let el of els) {
+            const els = document.querySelectorAll(args.selector);
+            for (const el of els) {
                 if (el.innerText === args.text)
                     return true;
             }

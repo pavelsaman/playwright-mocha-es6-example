@@ -34,7 +34,7 @@ class ProductDetail {
         await Promise.all([
             page.waitForFunction(
                 selector => {
-                    let p = document.querySelector(selector);
+                    const p = document.querySelector(selector);
                     if (p)
                         return p.getAttribute("class").includes('visible');
                     return false;
@@ -50,7 +50,7 @@ class ProductDetail {
             selector => {
                 const sizes = document.querySelectorAll(selector);
                 let i = 0;
-                for(let el of sizes) {
+                for(const el of sizes) {
                     if (el.getAttribute('class').includes('active'))
                         return i;
                     i++;
