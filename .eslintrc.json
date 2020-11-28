@@ -216,7 +216,7 @@
             }
         ],
         "implicit-arrow-linebreak": ["warn", "beside"],
-        "key-spacing": ["error",
+        "key-spacing": ["warn",
             {                
                 "align": "colon"                
             }
