@@ -2,18 +2,18 @@
     "name": "playwright-mocha-example",
     "version": "1.0.0",
     "description": "Example e2e tests in playwright with mocha",
-    "scripts": {
-        "test": "clear && mocha -i --grep @retired",
-        "t": "npm run test",
-        "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
-        "c": "npm run clean"
-    },
     "keywords": [
         "playwright",
         "mocha",
         "e2e",
         "fe"
     ],
+    "scripts": {
+        "test": "clear && mocha -i --grep @retired",
+        "t": "npm run test",
+        "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
+        "c": "npm run clean"
+    },
     "author": "Pavel Saman",
     "license": "ISC",
     "devDependencies": {
