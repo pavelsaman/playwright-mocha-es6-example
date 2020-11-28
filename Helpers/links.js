@@ -1,6 +1,7 @@
 
 export default async function getAllLinks (page, selector) {
-    const linkArr = await page.$$eval(selector,
+    const linkArr = await page.$$eval(
+        selector,
         links => links.map(link => link.getAttribute("href"))
     );
 

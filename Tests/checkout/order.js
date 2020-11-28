@@ -28,7 +28,7 @@ function waitForSelected (page, selector, text) {
         },
         {
             selector: selector,
-            text: text
+            text    : text
         }
     );
 }

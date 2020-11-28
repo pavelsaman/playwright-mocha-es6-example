@@ -1,3 +1,5 @@
+/* global browser */
+
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
 import config from '../../config';
@@ -6,7 +8,6 @@ import * as options from '../../Helpers/browserOptions';
 import randInt from '../../Helpers/randInt';
 import ProductDetail from '../../Objects/productDetail';
 import ProductPopup from '../../Objects/productPopup';
-/* global browser */
 
 import SizesPopup from '../../Objects/sizesPopup';
 import request from '../../Helpers/networkRequest';
@@ -73,7 +74,7 @@ suite('Product detail', function () {
             },
             {
                 selector: ProductDetail.sizes,
-                index: newSelected
+                index   : newSelected
             }
         );
 
@@ -111,8 +112,8 @@ suite('Product detail', function () {
                 .getAttribute('href');
         console.log(baseUrl + hrefAttr);
         const res = await request({
-            method: 'GET',
-            url: baseUrl + hrefAttr,
+            method      : 'GET',
+            url         : baseUrl + hrefAttr,
             maxRedirects: 0
         });
 

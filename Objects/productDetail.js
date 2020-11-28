@@ -7,7 +7,7 @@ class ProductDetail {
         this.addToCart = '#add-to-cart';
         this.quantity = '#product-detail-quantity';
         this.quantityInput = 'input[id="product-detail-quantity"]';
-        this.coupon = '.c-product-detail-main__info-tag' +
+        this.coupon = '.c-product-detail-main__info-tag'
             + '.c-product-detail-main__info-tag--coupon.js-product-coupon';
         this.sizesLink = '#detail-size-table-toggle';
         this.sizes = '#product-detail-size > a';
@@ -17,7 +17,8 @@ class ProductDetail {
     async chooseQuantity (page, quantity = undefined) {
         if (quantity) {
             if (quantity <= config.maxQuantityOption) {
-                await page.selectOption(this.quantity,
+                await page.selectOption(
+                    this.quantity,
                     { value: quantity.toString() }
                 );
             } else {
@@ -50,7 +51,7 @@ class ProductDetail {
             selector => {
                 const sizes = document.querySelectorAll(selector);
                 let i = 0;
-                for(const el of sizes) {
+                for (const el of sizes) {
                     if (el.getAttribute('class').includes('active'))
                         return i;
                     i++;

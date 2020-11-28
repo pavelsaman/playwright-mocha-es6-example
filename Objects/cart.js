@@ -39,17 +39,17 @@ class Cart3 {
     constructor () {
         this.invoiceInfo = {
             firstName: '#FirstName',
-            lastName: '#LastName',
-            street: '#Street',
-            city: '#City',
-            zipCode: '#ZipCode',
-            email: '#Email',
-            phone: '#Phone'
-        }
+            lastName : '#LastName',
+            street   : '#Street',
+            city     : '#City',
+            zipCode  : '#ZipCode',
+            email    : '#Email',
+            phone    : '#Phone'
+        };
         this.checkbox = {
-            generalTerms: '//label[@class="o-checkbox__label required" ' +
+            generalTerms: '//label[@class="o-checkbox__label required" '
                 + 'and @for="OrderConsents_0__IsChecked"]'
-        }
+        };
     }
 
     async fillInInvoiceInfo (page, invoiceInfo) {
@@ -89,11 +89,11 @@ class Cart {
         this.productQuantity = '.c-step-1__item-select';
         this.removeProduct = '.c-step-1__item-remove';
         this.steps = {
-            one: new Cart1(),
-            two: new Cart2(),
+            one  : new Cart1(),
+            two  : new Cart2(),
             three: new Cart3(),
-            four: new Cart4()
-        }
+            four : new Cart4()
+        };
     }
 }
 

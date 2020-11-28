@@ -14,7 +14,8 @@ class ProductPopup {
     async addProductIntoCart (page, quantity = undefined) {
         if (quantity)
             if (quantity <= config.maxQuantityOption) {
-                await page.selectOption(this.quantity,
+                await page.selectOption(
+                    this.quantity,
                     { value: quantity.toString() }
                 );
             } else {

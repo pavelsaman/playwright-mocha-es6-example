@@ -66,7 +66,7 @@ suite('Homepage', function () {
             getCookie(
                 cookies,
                 {
-                    searchFor: 'name',
+                    searchFor  : 'name',
                     searchValue: 'cookieAllowed'
                 }
             )
@@ -78,7 +78,7 @@ suite('Homepage', function () {
             getCookie(
                 cookies,
                 {
-                    searchFor: 'name',
+                    searchFor  : 'name',
                     searchValue: 'cookieAllowed'
                 }
             )
@@ -97,7 +97,7 @@ suite('Homepage', function () {
 
             const res = await request({
                 method: 'GET',
-                url: l.includes('http') ? l : baseUrl + l
+                url   : l.includes('http') ? l : baseUrl + l
             });
 
             expect(res.status).to.equal(200);
@@ -130,8 +130,7 @@ suite('Homepage', function () {
         expect(emailIsRequired).to.be.true;
     });
 
-    test('Newsletter contains valid link for more information',
-        async function () {
+    test('Newsletter contains valid link', async function () {
 
         await page.waitForFunction(
             selector => document.querySelector(selector),
