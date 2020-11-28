@@ -14,7 +14,8 @@
         "sourceType": "module"
     },
     "rules": {    
-        "accessor-pairs": ["error",
+        "accessor-pairs": [
+            "error",
             {
                 "setWithoutGet": true,
                 "getWithoutSet": false,
@@ -48,7 +49,8 @@
         "no-else-return": "error",
         "no-eval": "error",
         "no-loop-func": "error",
-        "no-magic-numbers": ["error",
+        "no-magic-numbers": [
+            "error",
             {
                 "ignoreArrayIndexes": true,
                 "ignore": [0, 1]
@@ -57,13 +59,15 @@
         "no-iterator": "error",
         "no-extend-native": "error",
         "no-extra-label": "warn",
-        "no-implicit-coercion": ["error",
+        "no-implicit-coercion": [
+            "error",
             {
                 "allow": ["+"]
             }
         ],
         "no-caller": "error",
-        "no-multi-spaces": ["warn", 
+        "no-multi-spaces": [
+            "warn", 
             {
                 "ignoreEOLComments": true
             }
@@ -95,7 +99,8 @@
         "yoda": ["error", "never"],
         "no-useless-return": "warn",
         "no-sequences": "error",
-        "lines-around-comment": ["warn",
+        "lines-around-comment": [
+            "warn",
             {
                 "beforeBlockComment": true,
                 "afterBlockComment": false,
@@ -111,7 +116,8 @@
                 "allowObjectEnd": false
             }
         ],
-        "max-len": ["warn",
+        "max-len": [
+            "warn",
             { 
                 "code": 80,
                 "tabWidth": 4,
@@ -124,14 +130,16 @@
             }
         ],
         "max-depth": ["warn", 2],
-        "max-lines": ["warn",
+        "max-lines": [
+            "warn",
             {
                 "max": 300,
                 "skipBlankLines": true,
                 "skipComments": true
             }
         ],
-        "max-lines-per-function": ["warn",
+        "max-lines-per-function": [
+            "warn",
             {
                 "max": 20,
                 "skipComments": true,
@@ -143,7 +151,8 @@
         "max-statements-per-line": ["error", { "max": 1 }],
         "no-multi-assign": "error",
         "no-mixed-spaces-and-tabs": "error",
-        "no-multiple-empty-lines": ["warn",
+        "no-multiple-empty-lines": [
+            "warn",
             {
                 "max": 2,
                 "maxEOF": 1,
@@ -151,7 +160,8 @@
             }
         ],
         "no-tabs": "warn",
-        "no-trailing-spaces": ["warn",
+        "no-trailing-spaces": [
+            "warn",
             {
                 "skipBlankLines": false,
                 "ignoreComments": true
@@ -179,20 +189,24 @@
         "array-bracket-spacing": ["warn", "never"],
         "block-spacing": ["warn", "always"],
         "brace-style": ["error", "1tbs", { "allowSingleLine": false }],
-        "camelcase": ["warn",
+        "camelcase": [
+            "warn",
             {
                 "properties": "always",
                 "ignoreImports": true,
                 "ignoreGlobals": false
             }
         ],
-        "comma-dangle": ["warn", {
-            "arrays": "only-multiline",
-            "objects": "only-multiline",
-            "imports": "never",
-            "exports": "never",
-            "functions": "never"
-        }],
+        "comma-dangle": [
+            "warn",
+            {
+                "arrays": "only-multiline",
+                "objects": "only-multiline",
+                "imports": "never",
+                "exports": "never",
+                "functions": "never"
+            }
+        ],
         "comma-spacing": ["warn", { "before": false, "after": true }],
         "computed-property-spacing": ["error", "never"],
         "consistent-this": ["error", "that"],
@@ -201,7 +215,9 @@
         "func-name-matching": "warn",
         "id-denylist": ["error", "callback", "suite", "test", "it", "describe"],
         "id-length": ["error", { "min": 1, "max": 25 }],
-        "indent": ["warn", 4,
+        "indent": [
+            "warn",
+            4,
             {
                 "VariableDeclarator": "first",
                 "MemberExpression": 1,
@@ -217,12 +233,14 @@
             }
         ],
         "implicit-arrow-linebreak": ["warn", "beside"],
-        "key-spacing": ["warn",
+        "key-spacing": [
+            "warn",
             {                
                 "align": "colon"                
             }
         ],
-        "keyword-spacing": ["warn",
+        "keyword-spacing": [
+            "warn",
             {
                 "before": true,
                 "after": true
