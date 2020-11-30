@@ -170,7 +170,7 @@
         "object-curly-spacing": ["warn", "always"],
         "no-whitespace-before-property": "warn",
         "nonblock-statement-body-position": ["error", "below"],
-        "semi": ["error", "always"],
+        "semi": ["warn", "always"],
         "semi-spacing": ["error", { "before": false, "after": true }],
         "semi-style": ["error", "last"],
         "generator-star-spacing": ["error", { "before": true, "after": false }],
