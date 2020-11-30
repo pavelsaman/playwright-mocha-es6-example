@@ -6,7 +6,6 @@
         "es6": true
     },
     "ignorePatterns": [
-        "node_modules/**/*.js"
     ],
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -214,7 +213,7 @@
         "func-call-spacing": ["warn", "never"],
         "func-name-matching": "warn",
         "id-denylist": ["error", "callback", "suite", "test", "it", "describe"],
-        "id-length": ["error", { "min": 1, "max": 25 }],
+        "id-length": ["error", { "min": 1, "max": 30 }],
         "indent": [
             "warn",
             4,
