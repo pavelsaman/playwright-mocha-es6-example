@@ -1,14 +1,15 @@
 /* global browser */
 
 import { saveVideo } from 'playwright-video';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import * as options from '../../Helpers/browserOptions';
-import invalidTerms from '../../Resources/invalidSearchTerms.json';
-import Fulltext from '../../Objects/fulltext';
-import FlashMessage from '../../Objects/flashMessage';
-import ProductListing from '../../Objects/productListing';
+import * as env from '../../Helpers/env.js';
+import * as options from '../../Helpers/browserOptions.js';
+import Fulltext from '../../Objects/fulltext.js';
+import FlashMessage from '../../Objects/flashMessage.js';
+import ProductListing from '../../Objects/productListing.js';
+import useful from 'useful-library';
 
+const config = useful.loadJsonFile('config.json');
+const invalidTerms = useful.loadJsonFile('./Resources/invalidSearchTerms.json');
 const baseUrl = config.baseUrl[env.envWithLang()];
 const SUCCESS = 200;
 

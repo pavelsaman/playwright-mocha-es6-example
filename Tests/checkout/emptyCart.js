@@ -2,12 +2,13 @@
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import * as options from '../../Helpers/browserOptions';
-import Header from '../../Objects/header';
-import Cart from '../../Objects/cart';
+import * as env from '../../Helpers/env.js';
+import * as options from '../../Helpers/browserOptions.js';
+import Header from '../../Objects/header.js';
+import Cart from '../../Objects/cart.js';
+import useful from 'useful-library';
 
+const config = useful.loadJsonFile('config.json');
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 

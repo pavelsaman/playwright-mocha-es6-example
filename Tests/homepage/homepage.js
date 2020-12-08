@@ -2,19 +2,21 @@
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import * as options from '../../Helpers/browserOptions';
-import Newsletter from '../../Objects/newsletter';
-import emails from '../../Resources/clientEmails.json';
-import getCookie from '../../Helpers/cookie';
-import CookieStripe from '../../Objects/cookieStripe';
-import Homepage from '../../Objects/homepage';
-import request from '../../Helpers/networkRequest';
-import getAllLinks from '../../Helpers/links';
-import FlashMessage from '../../Objects/flashMessage';
-import personalDataLinks from '../../Resources/personalDataLinks.json';
+import * as env from '../../Helpers/env.js';
+import * as options from '../../Helpers/browserOptions.js';
+import Newsletter from '../../Objects/newsletter.js';
+import getCookie from '../../Helpers/cookie.js';
+import CookieStripe from '../../Objects/cookieStripe.js';
+import Homepage from '../../Objects/homepage.js';
+import getAllLinks from '../../Helpers/links.js';
+import FlashMessage from '../../Objects/flashMessage.js';
+import useful from 'useful-library';
 
+const config = useful.loadJsonFile('config.json');
+const personalDataLinks
+    = useful.loadJsonFile('./Resources/personalDataLinks.json');
+const emails
+    = useful.loadJsonFile('./Resources/clientEmails.json');
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
@@ -95,7 +97,7 @@ suite('Homepage', function () {
             console.log('[' + i + '/' + tileLinks.size + '] ' + l);
             i++;
 
-            const res = await request({
+            const res = await useful.request({
                 method: 'GET',
                 url   : l.includes('http') ? l : baseUrl + l
             });

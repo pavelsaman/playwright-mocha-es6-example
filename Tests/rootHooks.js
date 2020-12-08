@@ -1,7 +1,7 @@
 /* global browser */
 
 import { chromium } from 'playwright';
-import * as options from '../Helpers/browserOptions';
+import * as options from '../Helpers/browserOptions.js';
 
 suiteSetup(async function () {
     global.browser = await chromium.launch(options.browserConfig());

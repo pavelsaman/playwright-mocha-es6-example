@@ -1,5 +1,7 @@
-import ProductPopup from './productPopup';
-import config from '../config.json';
+import ProductPopup from './productPopup.js';
+import useful from 'useful-library';
+
+const config = useful.loadJsonFile('config.json');
 
 class ProductDetail {
     constructor () {

@@ -9,7 +9,8 @@
         "fe"
     ],
     "scripts": {
-        "test": "clear && npm run lint && mocha -i --grep @retired",
+        "test-only": "./node_modules/.bin/mocha -i --grep @retired",
+        "test": "clear && npm run lint && npm run test-only",
         "t": "npm run test",
         "clean": "clear && rm -rf ./Results/ && mkdir -p ./Results/Screenshots && mkdir -p ./Results/Videos",
         "c": "npm run clean",
@@ -18,18 +19,19 @@
         "lint-fix": "./node_modules/.bin/eslint \"**/**/*.js\""
     },
     "author": "Pavel Saman",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@ffmpeg-installer/ffmpeg": "^1.0.20",
         "axios": "^0.21.0",
         "chai": "^4.2.0",
         "dotenv": "^8.2.0",
         "eslint": "^7.14.0",
-        "esm": "^3.2.25",
         "mocha": "^8.2.1",
         "mocha-multi-reporters": "^1.5.1",
         "mocha-simple-html-reporter": "^1.1.0",
         "playwright": "^1.6.2",
-        "playwright-video": "^2.4.0"
-    }
+        "playwright-video": "^2.4.0",
+        "useful-library": "^1.0.2"
+    },
+    "type": "module"
 }

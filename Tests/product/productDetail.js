@@ -2,16 +2,14 @@
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import * as options from '../../Helpers/browserOptions';
-import randInt from '../../Helpers/randInt';
-import ProductDetail from '../../Objects/productDetail';
-import ProductPopup from '../../Objects/productPopup';
+import * as env from '../../Helpers/env.js';
+import * as options from '../../Helpers/browserOptions.js';
+import ProductDetail from '../../Objects/productDetail.js';
+import ProductPopup from '../../Objects/productPopup.js';
+import SizesPopup from '../../Objects/sizesPopup.js';
+import useful from 'useful-library';
 
-import SizesPopup from '../../Objects/sizesPopup';
-import request from '../../Helpers/networkRequest';
-
+const config = useful.loadJsonFile('config.json');
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 const productUrl = "damska-mikina-cussa/lswp203828";
@@ -56,10 +54,10 @@ suite('Product detail', function () {
         const selected = await ProductDetail.selectedSize(page);
 
         // choose different product size
-        let newSelected = randInt(0, sizes.length - 1);
+        let newSelected = useful.randInt(0, sizes.length - 1);
         if (sizes.length > 1) {
             while (selected === newSelected)
-                newSelected = randInt(0, sizes.length - 1);
+                newSelected = useful.randInt(0, sizes.length - 1);
         }
 
         // click on different product size
@@ -108,10 +106,10 @@ suite('Product detail', function () {
 
         const belongToLinks = await page.$$(ProductDetail.belongToLink);
         const hrefAttr
-            = await belongToLinks[randInt(0, belongToLinks.length - 1)]
+            = await belongToLinks[useful.randInt(0, belongToLinks.length - 1)]
                 .getAttribute('href');
         console.log(baseUrl + hrefAttr);
-        const res = await request({
+        const res = await useful.request({
             method      : 'GET',
             url         : baseUrl + hrefAttr,
             maxRedirects: 0

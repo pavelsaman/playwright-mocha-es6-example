@@ -2,13 +2,14 @@
 
 import { devices } from 'playwright';
 import { saveVideo } from 'playwright-video';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import Header from '../../Objects/header';
-import Menu from '../../Objects/menu';
-import Fulltext from '../../Objects/fulltext';
-import testedTablets from '../../Resources/testedTablets.json';
+import * as env from '../../Helpers/env.js';
+import Header from '../../Objects/header.js';
+import Menu from '../../Objects/menu.js';
+import Fulltext from '../../Objects/fulltext.js';
+import useful from 'useful-library';
 
+const config = useful.loadJsonFile('config.json');
+const testedTablets = useful.loadJsonFile('./Resources/testedTablets.json');
 const baseUrl = config.baseUrl[env.envWithLang()];
 
 /* eslint-disable max-lines-per-function, max-nested-callbacks */

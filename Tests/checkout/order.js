@@ -2,17 +2,18 @@
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
-import config from '../../config';
-import * as env from '../../Helpers/env';
-import * as options from '../../Helpers/browserOptions';
-import ProductDetail from '../../Objects/productDetail';
-import ProductPopup from '../../Objects/productPopup';
-import Cart from '../../Objects/cart';
-import SummaryBox from '../../Objects/summaryBox';
+import * as env from '../../Helpers/env.js';
+import * as options from '../../Helpers/browserOptions.js';
+import ProductDetail from '../../Objects/productDetail.js';
+import ProductPopup from '../../Objects/productPopup.js';
+import Cart from '../../Objects/cart.js';
+import SummaryBox from '../../Objects/summaryBox.js';
+import useful from 'useful-library';
 
+const config = useful.loadJsonFile('config.json');
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
-const orderData = require('../../Resources/' + env.env() + '/'
+const orderData = useful.loadJsonFile('./Resources/' + env.env() + '/'
     + env.lang() + '/order.json');
 const productUrl = "damska-mikina-cussa/lswp203828";
 

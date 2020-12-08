@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
-import config from '../config';
+import useful from 'useful-library';
 
-
+const config = useful.loadJsonFile('config.json');
 dotenv.config();
 
 export function browserConfig () {
