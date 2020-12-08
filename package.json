@@ -2,6 +2,7 @@
     "name": "playwright-mocha-example",
     "version": "1.0.0",
     "description": "Example e2e tests in playwright with mocha",
+    "type": "module",
     "keywords": [
         "playwright",
         "mocha",
@@ -32,6 +33,5 @@
         "playwright": "^1.6.2",
         "playwright-video": "^2.4.0",
         "useful-library": "^1.0.2"
-    },
-    "type": "module"
+    }
 }
