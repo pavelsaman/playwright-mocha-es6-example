@@ -254,7 +254,7 @@
         "one-var-declaration-per-line": ["error", "initializations"],
         "operator-linebreak": ["warn", "before"],
         "prefer-exponentiation-operator": "warn",
-        "quote-props": ["warn", "consistent"],
+        "quote-props": ["warn", "as-needed"],
         "space-before-blocks": ["warn", "always"],
         "space-before-function-paren": ["warn", "always"],
         "space-in-parens": ["warn", "never"],
@@ -271,6 +271,8 @@
             {
                 "avoidExplicitReturnArrows": true
             }
-        ]
+        ],
+        "no-prototype-builtins": "error",
+        "prefer-object-spread": "error"
     }
 }
