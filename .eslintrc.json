@@ -168,7 +168,7 @@
         ],
         "object-curly-spacing": ["warn", "always"],
         "no-whitespace-before-property": "warn",
-        "nonblock-statement-body-position": ["error", "below"],
+        "nonblock-statement-body-position": ["error", "any"],
         "semi": ["warn", "always"],
         "semi-spacing": ["error", { "before": false, "after": true }],
         "semi-style": ["error", "last"],
@@ -273,6 +273,13 @@
             }
         ],
         "no-prototype-builtins": "error",
-        "prefer-object-spread": "error"
+        "prefer-object-spread": "error",
+        "no-restricted-globals": [
+            "error",
+            {
+                "name": "isNaN",
+                "message": "Global isNaN coerces non-numbers to numbers. Use Number.isNaN instead."
+            }
+        ]
     }
 }
