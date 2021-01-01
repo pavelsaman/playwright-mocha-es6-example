@@ -28,8 +28,8 @@ function waitForSelected (page, selector, text) {
             return false;
         },
         {
-            selector: selector,
-            text    : text
+            selector,
+            text
         }
     );
 }

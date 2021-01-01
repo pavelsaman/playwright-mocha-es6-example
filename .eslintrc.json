@@ -264,6 +264,13 @@
         "switch-colon-spacing": ["warn", {"after": true, "before": false}],
         "template-tag-spacing": ["warn", "always"],
         "wrap-regex": "error",
-        "no-nested-ternary": "warn"
+        "no-nested-ternary": "warn",
+        "object-shorthand": [
+            "warn",
+            "always",
+            {
+                "avoidExplicitReturnArrows": true
+            }
+        ]
     }
 }
