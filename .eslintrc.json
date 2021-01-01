@@ -279,6 +279,10 @@
             {
                 "name": "isNaN",
                 "message": "Global isNaN coerces non-numbers to numbers. Use Number.isNaN instead."
+            },
+            {
+                "name": "isFinite",
+                "message": "Global isFinite coerces non-numbers to numbers. Use Number.isFinite instead."
             }
         ]
     }
