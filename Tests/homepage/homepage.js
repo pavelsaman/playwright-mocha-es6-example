@@ -20,7 +20,8 @@ const emails
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 suite('Homepage', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

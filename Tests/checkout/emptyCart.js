@@ -12,7 +12,8 @@ const config = useful.loadJsonFile('config.json');
 const expect = chai.expect;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 suite('Empty cart', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

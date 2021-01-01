@@ -34,7 +34,8 @@ function waitForSelected (page, selector, text) {
     );
 }
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 suite('Create order', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

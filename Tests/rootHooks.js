@@ -3,6 +3,7 @@
 import { chromium } from 'playwright';
 import * as options from '../Helpers/browserOptions.js';
 
+/* eslint-disable prefer-arrow-callback */
 suiteSetup(async function () {
     global.browser = await chromium.launch(options.browserConfig());
 });

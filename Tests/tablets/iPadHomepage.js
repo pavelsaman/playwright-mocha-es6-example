@@ -12,7 +12,8 @@ const config = useful.loadJsonFile('config.json');
 const testedTablets = useful.loadJsonFile('./Resources/testedTablets.json');
 const baseUrl = config.baseUrl[env.envWithLang()];
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 testedTablets.mobileMenu.forEach(device => {
     suite(device + ' homepage view', function () {
 

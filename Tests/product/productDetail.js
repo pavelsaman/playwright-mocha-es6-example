@@ -15,7 +15,8 @@ const baseUrl = config.baseUrl[env.envWithLang()];
 const productUrl = "damska-mikina-cussa/lswp203828";
 const SUCCESS = 200;
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 suite('Product detail', function () {
 
     const suiteName = this.title.replace(/ /g, '_');
