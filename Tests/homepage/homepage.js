@@ -17,7 +17,7 @@ const personalDataLinks
     = useful.loadJsonFile('./Resources/personalDataLinks.json');
 const emails
     = useful.loadJsonFile('./Resources/clientEmails.json');
-const expect = chai.expect;
+const { expect } = chai;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
 /* eslint-disable max-lines-per-function, max-nested-callbacks,

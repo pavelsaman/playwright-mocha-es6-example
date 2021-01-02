@@ -9,7 +9,7 @@ import Cart from '../../Objects/cart.js';
 import useful from 'useful-library';
 
 const config = useful.loadJsonFile('config.json');
-const expect = chai.expect;
+const { expect } = chai;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
 /* eslint-disable max-lines-per-function, max-nested-callbacks,

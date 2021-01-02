@@ -11,7 +11,7 @@ import SummaryBox from '../../Objects/summaryBox.js';
 import useful from 'useful-library';
 
 const config = useful.loadJsonFile('config.json');
-const expect = chai.expect;
+const { expect } = chai;
 const baseUrl = config.baseUrl[env.envWithLang()];
 const orderData = useful.loadJsonFile('./Resources/' + env.env() + '/'
     + env.lang() + '/order.json');

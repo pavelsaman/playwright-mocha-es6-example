@@ -10,7 +10,7 @@ import SizesPopup from '../../Objects/sizesPopup.js';
 import useful from 'useful-library';
 
 const config = useful.loadJsonFile('config.json');
-const expect = chai.expect;
+const { expect } = chai;
 const baseUrl = config.baseUrl[env.envWithLang()];
 const productUrl = "damska-mikina-cussa/lswp203828";
 const SUCCESS = 200;

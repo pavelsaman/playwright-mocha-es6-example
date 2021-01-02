@@ -285,6 +285,7 @@
                 "message": "Global isFinite coerces non-numbers to numbers. Use Number.isFinite instead."
             }
         ],
-        "prefer-arrow-callback": "warn"
+        "prefer-arrow-callback": "warn",
+        "prefer-destructuring": "warn"
     }
 }
