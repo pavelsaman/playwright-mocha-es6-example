@@ -1,4 +1,6 @@
 /* global browser */
+/* eslint-disable max-lines-per-function, max-nested-callbacks,
+   prefer-arrow-callback */
 
 import { saveVideo } from 'playwright-video';
 import chai from 'chai';
@@ -12,8 +14,6 @@ const config = useful.loadJsonFile('config.json');
 const { expect } = chai;
 const baseUrl = config.baseUrl[env.envWithLang()];
 
-/* eslint-disable max-lines-per-function, max-nested-callbacks,
-   prefer-arrow-callback */
 suite('Empty cart', function () {
 
     const suiteName = this.title.replace(/ /g, '_');

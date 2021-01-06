@@ -54,11 +54,11 @@ suite('Homepage', function () {
         await context.close();
     });
 
-    /* eslint-disable no-magic-numbers */
     test('Correct email addresses', async function () {
 
         const emailElements
             = await page.$$('[href="mailto:' + emails[env.lang()] + '"]');
+        // eslint-disable-next-line no-magic-numbers
         expect(emailElements.length).to.equal(2);
     });
 
