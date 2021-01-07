@@ -102,7 +102,7 @@ suite('Homepage', function () {
                 method: 'GET',
                 url   : l.includes('http') ? l : baseUrl + l
             });
-
+            // eslint-disable-next-line no-magic-numbers
             expect(res.status).to.equal(200);
         }
     });
