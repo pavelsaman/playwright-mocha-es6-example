@@ -30,7 +30,7 @@
         "mocha": "^8.2.1",
         "mocha-multi-reporters": "^1.5.1",
         "mocha-simple-html-reporter": "^1.1.0",
-        "playwright": "^1.6.2",
+        "playwright": "^1.7.1",
         "playwright-video": "^2.4.0",
         "useful-library": "^1.0.2"
     }
