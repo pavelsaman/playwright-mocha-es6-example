@@ -20,9 +20,7 @@ async function waitForSearchSuggestions (page, searchTerm) {
                 === encodeURI(baseUrl
                     + Fulltext.suggestUrl.replace('{term}', searchTerm))
         ,
-        {
-            timeout: config.reqTimeout
-        }
+        { timeout: config.reqTimeout }
     );
     await page.waitForSelector(Fulltext.searchContainer);
     await page.waitForSelector(Fulltext.showMore);

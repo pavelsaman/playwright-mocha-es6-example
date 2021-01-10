@@ -65,27 +65,23 @@ suite('Homepage', function () {
     test('Cookie is saved after confirmation', async function () {
 
         let cookies = await context.cookies();
-        expect(
-            getCookie(
-                cookies,
-                {
-                    searchFor  : 'name',
-                    searchValue: 'cookieAllowed'
-                }
-            )
-        ).to.be.false;
+        expect(getCookie(
+            cookies,
+            {
+                searchFor  : 'name',
+                searchValue: 'cookieAllowed'
+            }
+        )).to.be.false;
 
         await page.click(CookieStripe.confirm);
         cookies = await context.cookies();
-        expect(
-            getCookie(
-                cookies,
-                {
-                    searchFor  : 'name',
-                    searchValue: 'cookieAllowed'
-                }
-            )
-        ).to.be.true;
+        expect(getCookie(
+            cookies,
+            {
+                searchFor  : 'name',
+                searchValue: 'cookieAllowed'
+            }
+        )).to.be.true;
     });
 
     test('Tiles contain valid links', async function () {

@@ -85,10 +85,8 @@ testedTablets.mobileMenu.forEach(device => {
 
             await Promise.all([
                 page.waitForFunction(
-                    selector => {
-                        return document.querySelector(selector)
-                            .getAttribute("class").includes('active');
-                    },
+                    selector => document.querySelector(selector)
+                        .getAttribute("class").includes('active'),
                     Menu.container
                 ),
                 page.click(Header.hamburger)
@@ -96,10 +94,8 @@ testedTablets.mobileMenu.forEach(device => {
 
             await Promise.all([
                 page.waitForFunction(
-                    selector => {
-                        return !document.querySelector(selector)
-                            .getAttribute("class").includes('active');
-                    },
+                    selector => !document.querySelector(selector)
+                        .getAttribute("class").includes('active'),
                     Menu.container
                 ),
                 page.click(Header.hamburger)
@@ -110,10 +106,8 @@ testedTablets.mobileMenu.forEach(device => {
 
             await Promise.all([
                 page.waitForFunction(
-                    selector => {
-                        return document.querySelector(selector)
-                            .getAttribute("class").includes('visible');
-                    },
+                    selector => document.querySelector(selector)
+                        .getAttribute("class").includes('visible'),
                     Fulltext.mobileSearch
                 ),
                 page.evaluate(
@@ -124,10 +118,8 @@ testedTablets.mobileMenu.forEach(device => {
 
             await Promise.all([
                 page.waitForFunction(
-                    selector => {
-                        return !document.querySelector(selector)
-                            .getAttribute("class").includes('visible');
-                    },
+                    selector => !document.querySelector(selector)
+                        .getAttribute("class").includes('visible'),
                     Fulltext.mobileSearch
                 ),
                 page.evaluate(
